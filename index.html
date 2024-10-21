@@ -1,37 +1,159 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"></meta>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"></meta>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KamarKhali Broadband LIVE TV</title>
-    <meta content="ENJOY FREE LIVE IPTV" name="description"></meta>
-    <meta content="Watch live sports streaming online, including football, basketball, baseball, hockey, and more. Stream your favorite sports teams and events in HD, with no cable subscription required." name="keywords"></meta>
-    <meta content="PK" name="author"></meta>
-    <meta content="IE=edge" http-equiv="X-UA-Compatible"></meta>
-    <link href="https://i.ibb.co.com/PQgtMq7/img-1-1728903047238.webp" rel="shortcut icon" type="image/x-icon"></link>
-
-    <link href="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.css" rel="stylesheet"></link>
-    <script src="https://cdn.jsdelivr.net/npm/plyr@3.6.12/dist/plyr.min.js"></script>
+    <meta name="description" content="ENJOY FREE LIVE IPTV">
+    <meta name="keywords" content="Watch live sports streaming online">
+    <meta name="author" content="PK">
+    <link href="https://i.ibb.co/com/PQgtMq7/img-1-1728903047238.webp" rel="shortcut icon" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/plyr@3.6.2/dist/plyr.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.1.4/dist/hls.min.js"></script>
-<link href="t.me/engparvezkhan.pk" rel="me"></link>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #181818;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
 
-</head><body>
-<header>
-    <img src="https://i.ibb.co.com/WthG9Mn/IMG-20241015-WA0000.jpg" alt="Website Logo" style="width: 450px; height: auto; display: block; margin: 30px ;">
-</header>
+        .video-player {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            background-color: #1a1a1a;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 640px;
+            height: 60%; 
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-    </html> 
+        .video-player video {
+            width: 100%;
+            height: 100;
+            border-radius: 10px;
+            border: 2px solid #ffffff;
+        }
 
-    <!--Video Player Section-->
-    <div class="video-player">
+        .loading {
+            font-size: 18px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            display: block;
+            text-align: center;
+        }
+
+        .live-section {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            background-color: #2b2b2b;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .team-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-logo {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+
+        .vs {
+            color: #4CAF50;
+            font-size: 1.5rem;
+            margin: 0 10px;
+        }
         
+       .title-image {
+            width: 100px; /* ইমেজের প্রস্থ */
+            height: auto; /* উচ্চতা স্বয়ংক্রিয় */
+            display: block; /* ব্লক এলিমেন্ট হিসেবে দেখানোর জন্য */
+            margin: 0 auto; /* কেন্দ্রে রাখার জন্য */
+        }
+        
+        .channel-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .channel-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: #333;
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        .channel-link img {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .channel-link:hover {
+            background-color: #4CAF50;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="https://i.ibb.co.com/WthG9Mn/IMG-20241015-WA0000.jpg" alt="Website Logo" style="width: 450px; height: auto; display: block; margin: 30px;">
+    </header>
+
+    <div class="video-player">
         <div class="loading" id="videoLoading">
-           
+            Loading Video...
         </div>
         <video autoplay="" controls="" crossorigin="" id="videoPlayer" playsinline="" unmuted="">
             <source id="videoSource" src="" type="application/vnd.apple.mpegurl"></source>
         </video>
-
+    </div>
 
         <div class="col-md-12">
 <style> 
@@ -42,19 +164,51 @@
      </marquee>
 </center>
 </div> 
-
-    </div>
-
-        
-
-    </div>
-        <div class="loading" id="channelLoading">
-            <p>Loading channels...</p>
-        </div>
-        <div class="channel-buttons" id="channelList" style="display: none;">
-            <!--Channels will be dynamically loaded here-->
-        </div>
+<div>
     
+    <img src="https://i.ibb.co.com/d2PSLxc/images-2-removebg-preview.png" alt="Title Image" style="width: 100px; height: auto;">
+   
+</div>
+
+</div>
+    <div class="live-section" onclick="loadVideo('https://raw.githubusercontent.com/parvezkhan11bd/my_iptv/refs/heads/main/video/playlist.m3u8')">
+        <div class="team-box">
+            <div class="team">
+                <img src="https://i.ibb.co.com/Qj2XsrZ/images.jpg" alt="Team 1 Logo" class="team-logo">
+                
+            </div>
+            <div class="vs">Vs</div>
+            <div class="team">
+                <img src="https://i.ibb.co.com/Qj2XsrZ/images.jpg" alt="Team 2 Logo" class="team-logo">
+                
+            </div>
+        </div>
+    </div>
+    <div class="live-section" onclick="loadVideo('https://raw.githubusercontent.com/parvezkhan11bd/my_iptv/refs/heads/main/video/playlist2.m3u8')">
+        <div class="team-box">
+            <div class="team">
+                <img src="https://i.ibb.co.com/tmD03TM/Picsart-24-10-20-22-18-12-740.jpg" alt="Team 1 Logo" class="team-logo">
+                
+            </div>
+            <div class="vs">Vs</div>
+            <div class="team">
+                <img src="https://i.ibb.co.com/tmD03TM/Picsart-24-10-20-22-18-12-740.jpg" alt="Team 2 Logo" class="team-logo">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="loading" id="channelLoading">
+        <p>Loading Channels...</p>
+    </div>
+    <div>
+    
+     <h2>ALL CHANNELS </h2>
+   
+    </div>
+    <div class="channel-buttons" id="channelList" style="display: none;">
+        <!-- Channels will be dynamically loaded here -->
+    </div>
 
     <script>
         const video = document.getElementById('videoPlayer');
@@ -62,7 +216,6 @@
         const channelLoading = document.getElementById('channelLoading');
         const channelList = document.getElementById('channelList');
 
-        // Display video loading animation
         video.addEventListener('waiting', function () {
             videoLoading.style.display = 'block';
         });
@@ -71,12 +224,10 @@
             videoLoading.style.display = 'none';
         });
 
-        // Load demo video when the page loads
         document.addEventListener('DOMContentLoaded', function () {
             const demoVideoUrl = 'https://dzkyvlfyge.erbvr.com/PeaceTvBangla/tracks-v3a1/mono.m3u8';
             loadVideo(demoVideoUrl);
 
-            // Fetch and load channels
             loadChannels();
         });
 
@@ -96,7 +247,6 @@
         }
 
         function loadChannels() {
-            // Simulate delay for loading channels
             setTimeout(() => {
                 fetch('https://raw.githubusercontent.com/parvezkhan11bd/parvez_ip/refs/heads/main/toffe.m3u')
                     .then(response => response.text())
@@ -134,370 +284,31 @@
                             channelList.appendChild(channelButton);
                         });
 
-                        // Display channels after loading
                         channelLoading.style.display = 'none';
                         channelList.style.display = 'flex';
 
-                        // Add event listeners to channel links
-                        document.querySelectorAll('.channel-link').forEach(function (link) {
-                            link.addEventListener('click', function (event) {
-                                event.preventDefault();
-                                const newSource = this.getAttribute('data-link');
-                                loadVideo(newSource);
+                        const channelLinks = document.querySelectorAll('.channel-link');
+                        channelLinks.forEach(link => {
+                            link.addEventListener('click', function (e) {
+                                e.preventDefault();
+                                let videoUrl = this.getAttribute('data-link');
+
+                                // Check if the URL is HTTP or HTTPS
+                                if (videoUrl.startsWith('http://')) {
+                                    window.open(videoUrl, '_blank'); // Open HTTP links in a new tab
+                                } else if (videoUrl.startsWith('https://')) {
+                                    loadVideo(videoUrl); // Load HTTPS links in the player
+                                }
                             });
                         });
                     });
-            }, 2000); // Simulating a delay for demonstration
+            }, 1000);
         }
     </script>
 
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #181818;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Custom Text Styling */
-        .custom-text {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .custom-text h1 {
-            font-size: 2rem;
-            color: #4CAF50;
-            background-color: #222;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .video-player {
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            background-color: #1a1a1a;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            max-width: 640px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .video-player h2 {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .video-player video {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            border: 2px solid #ffffff;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .loading {
-            font-size: 18px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 10px;
-            display: block;
-            text-align: center;
-        }
-
-        .channel-list {
-            background-color: #2b2b2b;
-            padding: 20px;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 720px;
-            text-align: center;
-        }
-
-        .channel-list h2 {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .channel-buttons {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .channel-buttons a {
-            background-color: #333;
-            width: 100px;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            margin: 10px;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .channel-buttons a img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-        }
-
-        .channel-buttons a:hover {
-            background-color: #4CAF50;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
-        }
-
-        @media (max-width: 568px) {
-            .video-player,
-            .channel-list {
-                width: 100%;
-                padding: 10px;
-            }
-
-            .channel-buttons a {
-                width: 80px;
-                height: 80px;
-            }
-
-            .channel-buttons a img {
-                width: 60px;
-                height: 60px;
-            }
-        }
-    </style>
-
-
-
-<script type='text/javascript'> 
-document.addEventListener('contextmenu', event => event.preventDefault()); 
-</script>
-<script type='text/javascript'> 
-//<![CDATA[ 
-var message="NoRightClicking is allowed in our website"; 
-function arpianDisableClick() { 
-if (document.all) { 
-alert(message); //Remove this line if you don't want alert message 
-return false; 
-} 
-} 
-function arpianNoRightClick(e) { 
-if (document.layers||(document.getElementById&&!document.all)) { 
-if (e.which==2||e.which==3) { 
-alert(message); //Remove this line if you don't want alert message 
-return false;} 
-} 
-} 
-if (document.layers) { 
-document.captureEvents(Event.MOUSEDOWN); 
-document.onmousedown=arpianNoRightClick; 
-} else{ 
-document.onmouseup=arpianNoRightClick; 
-document.oncontextmenu=arpianDisableClick; 
-} 
-document.oncontextmenu=new Function("return false") 
-//]]></script>
-
-
-
-
-
-
-
-
-<script type='text/javascript'>
-//<![CDATA[
-var uri = window.location.toString();
-if (uri.indexOf("%3D","%3D") > 0) {
-var clean_uri = uri.substring(0, uri.indexOf("%3D"));
-window.history.replaceState({}, document.title, clean_uri);
-}
-var uri = window.location.toString();
-if (uri.indexOf("%3D%3D","%3D%3D") > 0) {
-var clean_uri = uri.substring(0, uri.indexOf("%3D%3D"));
-window.history.replaceState({}, document.title, clean_uri);
-}
-var uri = window.location.toString();
-if (uri.indexOf("&m=1","&m=1") > 0) {
-var clean_uri = uri.substring(0, uri.indexOf("&m=1"));
-window.history.replaceState({}, document.title, clean_uri);
-}
-var uri = window.location.toString();
-if (uri.indexOf("?m=1","?m=1") > 0) {
-var clean_uri = uri.substring(0, uri.indexOf("?m=1"));
-window.history.replaceState({}, document.title, clean_uri);
-}
-//]]>
-</script>
-
-<script type='text/javascript'>
-if (typeof document.onselectstart!='undefined' ) {
-document.onselectstart=new Function (“return false” );
-}
-else {
-document.onmousedown=new Function ('return false' );
-document.onmouseup=new Function ('return true' );
-}
-</script>
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script>
-document.onkeydown = function(e) {
-var message='Content is protected\nYou cannot view the page source.';
-if (e.ctrlKey &&
-(e.keyCode === 67 ||
-e.keyCode === 86 ||
-e.keyCode === 85 ||
-e.keyCode === 117)) {
-alert(message);
-return false;
-} else {
-return true;
-}
-};
-$(document).keypress('u',function(e) {
-if(e.ctrlKey)
-{
-return false;
-}
-else
-{
-return true;
-}
-});
-</script>
-
-
-
-
-<script src=”http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js”></script>
-<script>
-
-$(document).keydown(function (event) {
-var message = 'Content is protected\nYou cannot view the Dev Tools.';
-if (event.keyCode == 123) { // Prevent F12
-alert(message);
-return false;
-} else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
-alert(message);
-return false;
-}
-});
-</script>
-
-
-<script>
-
-var message=”NoRightClicking is allowed in our website”;
-function arpianDisableClick() {
-if (document.all) {
-alert(message); //Remove this line if you don’t want alert message
-return false;
-}
-}
-function arpianNoRightClick(e) {
-if (document.layers||(document.getElementById&&!document.all)) {
-if (e.which==2||e.which==3) {
-alert(message); //Remove this line if you don’t want alert message
-return false;}
-}
-}
-if (document.layers) {
-document.captureEvents(Event.MOUSEDOWN);
-document.onmousedown=arpianNoRightClick;
-} else{
-document.onmouseup=arpianNoRightClick;
-document.oncontextmenu=arpianDisableClick;
-}
-document.oncontextmenu=new Function(“return false”)
-
-</script>
-
-
-
-<script type=’text/javascript’>
-document.addEventListener(‘contextmenu’, event => event.preventDefault());
-</script>
-
-
-<script>
-document.onkeydown = function(e) {
-var message = “Content is protected\nYou cannot view the page source.”;
-if (e.ctrlKey &&
-(e.keyCode === 67 ||
-e.keyCode === 86 ||
-e.keyCode === 85 ||
-e.keyCode === 117)) {
-alert(message);
-return false;
-} else {
-return true;
-}
-};
-$(document).keypress(“u”,function(e) {
-if(e.ctrlKey)
-{
-return false;
-}
-else
-{
-return true;
-}
-});
-
-//=============================================================
-//disable F12 Key and Ctrl + shift + I combination
-
-$(document).keydown(function (event) {
-var message = “Content is protected\nYou cannot view the Dev Tools.”;
-if (event.keyCode == 123) { // Prevent F12
-alert(message);
-return false;
-} else if (event.ctrlKey && event.shiftKey && event.keyCode == 73) { // Prevent Ctrl+Shift+I
-alert(message);
-return false;
-}
-});
-</script>
-
-
-
-
-
-
+    <footer>
+        <p>&copy; 2024 KamarKhali Broadband. All Rights Reserved.</p>
+    </footer>
 </body>
 
-
-
-
-    <footer>
-     
-            <div style="text-align: center;"><span style="font-family: arial;"><span style="color:  #ffffff  ;">©️2024 Kamarkhali Brodband Live Tv:</span> <span style="color:  #ffcd00;">All Rights Reseved</span> </span></div>
-        </footer>
-     
-
-
-
-
-    
+</html>
